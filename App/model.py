@@ -110,7 +110,7 @@ def updateAreaIndex(map, crime):
 def newAreaEntry():
     "Crea una entrada para el indice de areas reportadas"
     
-    entry ={'Area index':lt.newList('SINGLE_LINKED',compareAreas)}
+    entry ={'reaIndex':lt.newList('SINGLE_LINKED',compareAreas)}
     return entry
 
 
@@ -236,8 +236,7 @@ def indexHeightAreas(analyzer):
     Altura del arbol por areas
     """
     # TODO lab 9, leer la altura del arbol por areas
-    
-    pass
+    return om.height(analyzer["areaIndex"])
 
 
 def indexSizeAreas(analyzer):
@@ -253,16 +252,14 @@ def minKeyAreas(analyzer):
     """
     Llave mas pequena por areas
     """
-    # TODO lab 9, leer la llave mas pequena por areas
-    pass
+    return om.minKey(analyzer["areaIndex"]) 
 
 
 def maxKeyAreas(analyzer):
     """
     Llave mas grande por areas
     """
-    # TODO lab 9, leer la llave mas grande por areas
-    pass
+    return om.maxKey(analyzer["areaIndex"]) 
 
 
 def getCrimesByRangeArea(analyzer, initialArea, finalArea):
@@ -270,7 +267,10 @@ def getCrimesByRangeArea(analyzer, initialArea, finalArea):
     Retorna el numero de crimenes en un rango de areas
     """
     # TODO lab 9, completar la consulta de crimenes por rango de areas
+    lst = om.values(analyzer["areaIndex"], initialArea, finalArea)
     totalcrimes = 0
+    for lstarea in lt.iterator(lst):
+        totalcrimes += lt.size(lstarea["lstcrimes"])
     return totalcrimes
 
 
