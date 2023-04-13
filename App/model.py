@@ -236,8 +236,7 @@ def indexHeightAreas(analyzer):
     Altura del arbol por areas
     """
     # TODO lab 9, leer la altura del arbol por areas
-    
-    pass
+    return om.height(analyzer["areaIndex"])
 
 
 def indexSizeAreas(analyzer):
