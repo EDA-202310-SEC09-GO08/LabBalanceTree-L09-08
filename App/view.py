@@ -105,7 +105,7 @@ while True:
         inicio = int(input('Ingrese inicio'))
         fin = int(input('ingrese fin'))
         r = controller.getCrimesByRangeArea(cont,inicio,fin)
-        print(r)
+        print('Total de crimenes en el rango de area son:'+r)
     else:
         sys.exit(0)
 sys.exit(0)
