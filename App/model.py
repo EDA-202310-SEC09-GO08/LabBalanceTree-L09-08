@@ -58,7 +58,7 @@ def newAnalyzer():
                 }
 
     analyzer["crimes"] = lt.newList("SINGLE_LINKED", compareIds)
-    analyzer["dateIndex"] = om.newMap(omaptype="BST",
+    analyzer["dateIndex"] = om.newMap(omaptype="RBT",
                                       comparefunction=compareDates)
     # TODO lab 9, crear el indice ordenado por areas reportadas
     return analyzer
@@ -94,12 +94,10 @@ def updateAreaIndex(map, crime):
     return map
 
 
-def newAreaEntry(crime):
-    """
-    Crea una entrada para el indice de areas reportadas
-    """
-    # TODO lab 9, crear una entrada para el indice de areas reportadas
-    entry = {"lstcrimes": None, }
+def newAreaEntry():
+    "Crea una entrada para el indice de areas reportadas"
+    
+    entry ={'Area index':lt.newList('SINGLE_LINKED',compareAreas)}
     return entry
 
 
