@@ -102,11 +102,10 @@ while True:
               str(numoffenses))
 
     elif (int(inputs[0]) == 5):
-        # TODO lab 9, implementar el I/O e invocar las funcions de la opcion 5
-        print("\nBuscando crimenes en un rango de areas: ")
-        print("Las areas estan numeradas con enteros (1 - 962)")
-        print("Un area desconocida tiene el el numero 9999")
-
+        inicio = int(input('Ingrese inicio'))
+        fin = int(input('ingrese fin'))
+        r = controller.getCrimesByRangeArea(cont,inicio,fin)
+        print(r)
     else:
         sys.exit(0)
 sys.exit(0)
