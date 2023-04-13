@@ -89,7 +89,20 @@ def updateAreaIndex(map, crime):
     # area desconocida es 9999
 
     # revisar si el area ya esta en el indice
+    area = crime["REPORTING_AREA"]
+    if area == "" or area == " " or area == None:
+        area = 9999
+    else:
+        area = int(area)
+    esta = m.contains(map,area)
+    if esta:
+        mapa = om.get(map,area)
+        lista = me.getValue(mapa)
 
+    else:
+        lista = newAreaEntry(crime)
+
+    addAreaIndex(lista, crime)    
     # si el area ya esta en el indice, adicionar el crimen a la lista
     return map
 
@@ -100,6 +113,7 @@ def newAreaEntry(crime):
     """
     # TODO lab 9, crear una entrada para el indice de areas reportadas
     entry = {"lstcrimes": None, }
+    
     return entry
 
 
@@ -108,6 +122,7 @@ def addAreaIndex(area_entry, crime):
     Adiciona un crimen a la lista de crimenes de un area
     """
     # TODO lab 9, adicionar crimen a la lista de crimenes de un area
+
     return area_entry
 
 
