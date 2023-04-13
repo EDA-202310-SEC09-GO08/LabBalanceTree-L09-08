@@ -251,14 +251,14 @@ def minKeyAreas(analyzer):
     """
     Llave mas pequena por areas
     """
-    return om.minKey(analyzer["AreaIndex"]) 
+    return om.minKey(analyzer["areaIndex"]) 
 
 
 def maxKeyAreas(analyzer):
     """
     Llave mas grande por areas
     """
-    return om.maxKey(analyzer["AreaIndex"]) 
+    return om.maxKey(analyzer["areaIndex"]) 
 
 
 def getCrimesByRangeArea(analyzer, initialArea, finalArea):
@@ -266,10 +266,10 @@ def getCrimesByRangeArea(analyzer, initialArea, finalArea):
     Retorna el numero de crimenes en un rango de areas
     """
     # TODO lab 9, completar la consulta de crimenes por rango de areas
-    lst = om.values(analyzer["dateIndex"], initialDate, finalDate)
+    lst = om.values(analyzer["areaIndex"], initialArea, finalArea)
     totalcrimes = 0
-    for lstdate in lt.iterator(lst):
-        totalcrimes += lt.size(lstdate["lstcrimes"])
+    for lstarea in lt.iterator(lst):
+        totalcrimes += lt.size(lstarea["lstcrimes"])
     return totalcrimes
 
 
